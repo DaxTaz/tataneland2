@@ -76,7 +76,7 @@ public class Movie {
 		this.storyLine = storyLine;
 	}
 	
-	@Column(name = "NATIONALITY")
+	@Column(name = "NATIONALITY", nullable = false)
 	public String getNationality() {
 		return nationality;
 	}
@@ -85,7 +85,7 @@ public class Movie {
 		this.nationality = nationality;
 	}
 	
-	@Column(name = "DURATION")
+	@Column(name = "DURATION", nullable = false)
 	public Integer getDuration() {
 		return duration;
 	}
@@ -94,7 +94,7 @@ public class Movie {
 		this.duration = duration;
 	}
 
-	@Column(name = "CREATION_DATE")
+	@Column(name = "CREATION_DATE", nullable = false)
 	public LocalDate getCreationDate() {
 		return creationDate;
 	}
