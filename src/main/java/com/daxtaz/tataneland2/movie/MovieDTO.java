@@ -3,19 +3,9 @@ package com.daxtaz.tataneland2.movie;
 import java.time.LocalDate;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-
 import com.daxtaz.tataneland2.actor.Actor;
 
-@Entity
-@Table(name = "MOVIE")
-public class Movie {
+public class MovieDTO {
 
 	private Integer id;
 	
@@ -35,9 +25,6 @@ public class Movie {
 	
 	private Set<Actor> actors;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "MOVIE_ID")
 	public Integer getId() {
 		return id;
 	}
@@ -45,8 +32,7 @@ public class Movie {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	@Column(name = "NAME", nullable = false)
+
 	public String getName() {
 		return name;
 	}
@@ -55,7 +41,6 @@ public class Movie {
 		this.name = name;
 	}
 
-	@Column(name = "DIRECOR", nullable = false)
 	public String getDirector() {
 		return director;
 	}
@@ -63,8 +48,7 @@ public class Movie {
 	public void setDirector(String director) {
 		this.director = director;
 	}
-	
-	@Column(name = "WRITER", nullable = false)
+
 	public String getWriter() {
 		return writer;
 	}
@@ -73,7 +57,6 @@ public class Movie {
 		this.writer = writer;
 	}
 
-	@Column(name = "STORY_LINE", nullable = false)
 	public String getStoryLine() {
 		return storyLine;
 	}
@@ -81,8 +64,7 @@ public class Movie {
 	public void setStoryLine(String storyLine) {
 		this.storyLine = storyLine;
 	}
-	
-	@Column(name = "NATIONALITY", nullable = false)
+
 	public String getNationality() {
 		return nationality;
 	}
@@ -90,8 +72,7 @@ public class Movie {
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
 	}
-	
-	@Column(name = "DURATION", nullable = false)
+
 	public Integer getDuration() {
 		return duration;
 	}
@@ -100,7 +81,6 @@ public class Movie {
 		this.duration = duration;
 	}
 
-	@Column(name = "CREATION_DATE", nullable = false)
 	public LocalDate getCreationDate() {
 		return creationDate;
 	}
@@ -109,7 +89,6 @@ public class Movie {
 		this.creationDate = creationDate;
 	}
 
-	@ManyToMany
 	public Set<Actor> getActors() {
 		return actors;
 	}
