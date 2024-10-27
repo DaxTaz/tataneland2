@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Page de connexion du site TataneLand</title>
+<link rel="stylesheet" th:href="@{/css/index.css}">
+<!-- <link href="fontawesome/css/all.css" rel="stylesheet"> -->
+<link th:href="@{/css/fontawesome/css/all.css}" rel="stylesheet">
+</head>
+<body>
+	<form>
+		<h1>Se conneter</h1>
+		<div class="social-media">
+			<p><i class="fa-brands fa-facebook"></i></p>
+			<p><i class="fa-brands fa-youtube"></i></p>
+			<p><i class="fa-brands fa-google"></i></p>
+			<p><i class="fa-brands fa-x-twitter"></i></p>
+		</div>
+		<p class="choose-email">ou utiliser mon adresse e-mail :</p>
+		<div class="inputs">
+			<input type="email" placeholder="Email">
+			<input type="password" placeholder="Mot de passe">
+		</div>
+		<p class="inscription">Je n'ai pas de <span>compte</span>. Je m'en <span>crée</span> un.</p>
+		<div align="center">
+			<button type="submit">Se connecter</button>
+		</div>
+	</form>
+</body>
+</html>
