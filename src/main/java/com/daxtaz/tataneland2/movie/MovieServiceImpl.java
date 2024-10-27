@@ -14,6 +14,11 @@ public class MovieServiceImpl implements IMovieService {
 	@Autowired
 	private IMovieDao movieDao;
 	
+	public MovieServiceImpl(IMovieDao movieDao) {
+		super();
+		this.movieDao = movieDao;
+	}
+
 	public Movie saveMovie(Movie movie) {
 		return movieDao.save(movie);
 	}
