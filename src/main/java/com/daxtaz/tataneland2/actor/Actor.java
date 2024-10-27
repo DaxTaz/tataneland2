@@ -29,6 +29,15 @@ public class Actor {
 	
 	private Set<Movie> movies;
 
+	public Actor(String name, String nationality, LocalDate ageOfBirth, String biography, Set<Movie> movies) {
+		super();
+		this.name = name;
+		this.nationality = nationality;
+		this.ageOfBirth = ageOfBirth;
+		this.biography = biography;
+		this.movies = movies;
+	}
+
 	@Id
 	@Column(name = "ACTOR_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
