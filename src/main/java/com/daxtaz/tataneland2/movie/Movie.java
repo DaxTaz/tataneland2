@@ -34,6 +34,21 @@ public class Movie {
 	private LocalDate creationDate;
 	
 	private Set<Actor> actors;
+	
+	public Movie() {}
+	
+	public Movie(String name, String director, String writer, String storyLine, String nationality,
+			Integer duration, LocalDate creationDate, Set<Actor> actors) {
+		super();
+		this.name = name;
+		this.director = director;
+		this.writer = writer;
+		this.storyLine = storyLine;
+		this.nationality = nationality;
+		this.duration = duration;
+		this.creationDate = creationDate;
+		this.actors = actors;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
