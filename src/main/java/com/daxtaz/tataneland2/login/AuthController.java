@@ -28,25 +28,25 @@ public class AuthController {
 	
 	@GetMapping("/")
 	public String Login(Model model) {
-		model.addAttribute("login", new Login());
+		model.addAttribute("user", new User());
 		return "login";
 	}
 	
 	@PostMapping("/user/login")
-	public String userLogin(@Valid @ModelAttribute("login") Login login, BindingResult bindingResult, Model model) {
+	public String userLogin(@Valid @ModelAttribute("user") User user, BindingResult bindingResult, Model model) {
 		if(bindingResult.hasErrors()) {
 			return "login";
 		}
 		
-		User user = userService.findUserByEmail(login.getEmail());
+		User findUser = userService.findUserByEmail(user.getEmail());
 		
-		if(user == null) {
+		if(findUser == null) {
 			ObjectError error = new ObjectError("globalError", "User does not exist");
 			bindingResult.addError(error);
 			return "login";
 		}
 		
-		if(!user.getPassword().equalsIgnoreCase(login.getPassword())) {
+		if(!findUser.getPassword().equalsIgnoreCase(user.getPassword())) {
 			ObjectError error = new ObjectError("globalError", "Password is wrong");
 			bindingResult.addError(error);
 			return "login";
@@ -77,7 +77,21 @@ public class AuthController {
 		if(bindingResult.hasErrors()) {
 			return "newUser";
 		}
+		
+		User existUserEmail = userService.findUserByEmail(userToSave.getEmail());
+		
+		if(existUserEmail != null) {
+			ObjectError error = new ObjectError("globalError", "Email already use");
+			bindingResult.addError(error);
+			return "newUser";
+		}
+		
+		//etablir dans un premier temps un cahier de recette à l'ancienne pour l'ensemble des pages et ensuite
+		// transformer ca en tests unitaires
+		//documenter tout ca et repartir les controller en differentes classes
+		
 		userService.saveOrUpdateUser(userToSave);
+		
 		return "redirect:/users";
 	}
 	
