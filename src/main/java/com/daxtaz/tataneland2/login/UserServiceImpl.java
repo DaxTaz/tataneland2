@@ -50,7 +50,6 @@ public class UserServiceImpl implements IUserService {
 	private UserDto mapUserToUserDto(User user) {
 		UserDto userDto = new UserDto();
 		userDto.setId(user.getId());
-		userDto.setName(user.getName());
 		userDto.setEmail(user.getEmail());
 		userDto.setPassword(user.getPassword());
 		return userDto;
