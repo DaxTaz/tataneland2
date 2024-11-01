@@ -1,0 +1,35 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color : black;
+}
+
+nav {
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: 10px;
+}
+
+h1 {
+	font-size : 33px;
+	padding-left: 10px;
+	color : white;
+}
+
+label {
+	color : white;
+}
+
+.container {
+	background-color : #191a1a;
+	width : 500px;
+}
+
+.table {
+	--bs-table-bg : #191a1a;
+	--bs-table-color : white;
+}
+
+.btn-primary {
+	margin-top: 10px;
+}
