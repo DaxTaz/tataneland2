@@ -18,8 +18,6 @@ public class User {
 
 	private Integer id;
 	
-	private String name;
-	
 	private String email;
 	
 	private String password;
@@ -28,16 +26,15 @@ public class User {
 	
 	public User() {}
 
-	public User(Integer id, String name, String email, String password) {
+	public User(Integer id, String email, String password) {
 		super();
 		this.id = id;
-		this.name = name;
 		this.email = email;
 		this.password = password;
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "USER_ID")
 	public Integer getId() {
 		return id;
@@ -45,16 +42,6 @@ public class User {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	@Column(name = "NAME", nullable = false)
-	@NotBlank(message = "User name can not be null")
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	@Column(name = "EMAIL", nullable = false, unique = true)
