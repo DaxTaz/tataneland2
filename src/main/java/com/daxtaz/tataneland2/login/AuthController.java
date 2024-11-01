@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,8 +27,31 @@ public class AuthController {
 	}
 	
 	@GetMapping("/")
-	public String Login() {
+	public String Login(Model model) {
+		model.addAttribute("login", new Login());
 		return "login";
+	}
+	
+	@PostMapping("/user/login")
+	public String userLogin(@Valid @ModelAttribute("login") Login login, BindingResult bindingResult, Model model) {
+		if(bindingResult.hasErrors()) {
+			return "login";
+		}
+		
+		User user = userService.findUserByEmail(login.getEmail());
+		
+		if(user == null) {
+			ObjectError error = new ObjectError("globalError", "User does not exist");
+			bindingResult.addError(error);
+			return "login";
+		}
+		
+		if(!user.getPassword().equalsIgnoreCase(login.getPassword())) {
+			ObjectError error = new ObjectError("globalError", "Password is wrong");
+			bindingResult.addError(error);
+			return "login";
+		}
+		return "redirect:/acceuil";
 	}
 	
 	@GetMapping("/acceuil")
