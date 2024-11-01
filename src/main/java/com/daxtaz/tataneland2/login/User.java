@@ -34,6 +34,7 @@ public class User {
 	}
 
 	@Id
+	// TODO before generation type is auto ????? a voir
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "USER_ID")
 	public Integer getId() {
