@@ -1,4 +1,4 @@
-package com.daxtaz.tataneland2.login;
+package com.daxtaz.tataneland2.user;
 
 public class UserDto {
 	

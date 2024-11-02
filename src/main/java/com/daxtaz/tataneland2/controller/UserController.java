@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.daxtaz.tataneland2.login.IUserService;
-import com.daxtaz.tataneland2.login.User;
-import com.daxtaz.tataneland2.login.UserDto;
+import com.daxtaz.tataneland2.user.IUserService;
+import com.daxtaz.tataneland2.user.User;
+import com.daxtaz.tataneland2.user.UserDto;
 
 @Controller
 public class UserController {
