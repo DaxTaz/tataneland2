@@ -52,10 +52,6 @@ public class UserController {
 			return "newUser";
 		}
 		
-		//etablir dans un premier temps un cahier de recette à l'ancienne pour l'ensemble des pages et ensuite
-		// transformer ca en tests unitaires
-		//documenter tout ca et repartir les controller en differentes classes
-		
 		userService.saveOrUpdateUser(userToSave);
 		
 		return "redirect:/users";
