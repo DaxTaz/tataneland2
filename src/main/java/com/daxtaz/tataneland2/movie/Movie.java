@@ -33,12 +33,12 @@ public class Movie {
 	
 	private LocalDate creationDate;
 	
-	private Set<Actor> actors;
+	/*private Set<Actor> actors;*/
 	
 	public Movie() {}
 	
 	public Movie(String name, String director, String writer, String storyLine, String nationality,
-			Integer duration, LocalDate creationDate, Set<Actor> actors) {
+			Integer duration, LocalDate creationDate/*, Set<Actor> actors*/) {
 		super();
 		this.name = name;
 		this.director = director;
@@ -47,7 +47,7 @@ public class Movie {
 		this.nationality = nationality;
 		this.duration = duration;
 		this.creationDate = creationDate;
-		this.actors = actors;
+		//this.actors = actors;
 	}
 
 	@Id
@@ -124,6 +124,7 @@ public class Movie {
 		this.creationDate = creationDate;
 	}
 
+	/*
 	@ManyToMany
 	public Set<Actor> getActors() {
 		return actors;
@@ -132,5 +133,6 @@ public class Movie {
 	public void setActors(Set<Actor> actors) {
 		this.actors = actors;
 	}
+	*/
 	
 }
