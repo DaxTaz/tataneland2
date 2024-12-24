@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>Page de connexion du site TataneLand</title>
 <link rel="stylesheet" th:href="@{/css/index.css}">
 <!-- <link href="fontawesome/css/all.css" rel="stylesheet"> -->
@@ -9,7 +9,8 @@
 </head>
 <body>
 	<form th:action="@{/user/login}" th:object="${user}" method="post">
-		<h1>Se conneter</h1>
+		<img alt="" th:src="@{img/tataneland_login.png}" height="150" style="padding-left: 105px;">
+		<h1>Se conneter à TataneLand</h1>
 		<div class="social-media">
 			<p><i class="fa-brands fa-facebook"></i></p>
 			<p><i class="fa-brands fa-youtube"></i></p>
@@ -24,7 +25,7 @@
 			<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></div>
 		</div>
 		<div th:if="${#fields.hasErrors('global')}" th:errors="*{global}" class="text-danger"></div>
-		<p class="inscription">Je n'ai pas de <span>compte</span>. Je m'en <span>cr�e</span> un.</p>
+		<p class="inscription">Je n'ai pas de <span>compte</span>. Je m'en <span>crée</span> un.</p>
 		<div align="center">
 			<button type="submit">Se connecter</button>
 		</div>
