@@ -18,7 +18,7 @@ public class Role {
 	
 	private String name;
 	
-	private List<User> users;
+	//private List<User> users;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,6 +39,7 @@ public class Role {
 		this.name = name;
 	}
 
+	/*
 	@ManyToMany(mappedBy = "roles")
 	public List<User> getUsers() {
 		return users;
@@ -47,5 +48,6 @@ public class Role {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
+	*/
 	
 }
