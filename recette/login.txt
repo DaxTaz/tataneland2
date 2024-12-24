@@ -1,0 +1,36 @@
+1)
+
+# Do not put anything in the fields and validate the form
+
+-> The following messages should appear
+
+"User email can not be null"
+"User password can not be null"
+
+2)
+
+#Enter a invalid email regex and a password
+
+-> The focus must be on the email field
+
+3)
+
+# Enter a valid email regex but non existing on database and a password
+
+->  The following message should appear
+
+"User does not exist"
+
+4)
+
+# Enter a valid email existing on database but a wrong password and validate the form
+
+-> The following message should appear
+
+"Password is wrong"
+
+5)
+
+# Enter a valid email and password existing on database and validate the form
+
+-> You must be redirected to the home page
