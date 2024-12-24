@@ -77,7 +77,9 @@ nav .div-droite p {
 .films .section .list {
 	display: flex;
 	overflow-x: auto;
-	/*overflow-x: hidden;*/
+	padding-bottom: 10px;
+	padding-top: 5px;
+	overflow-x: hidden;
 }
 
 .films .section a {
