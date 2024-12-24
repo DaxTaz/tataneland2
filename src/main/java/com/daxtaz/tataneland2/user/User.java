@@ -1,6 +1,7 @@
 package com.daxtaz.tataneland2.user;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -22,7 +23,8 @@ public class User {
 	
 	private String password;
 	
-	private List<Role> roles = new ArrayList<Role>();
+	//private List<Role> roles = new ArrayList<Role>();
+	private String role;
 	
 	public User() {}
 
@@ -60,13 +62,20 @@ public class User {
 	public String getPassword() {
 		return password;
 	}
-
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	
-	@ManyToMany
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	/*
 	public List<Role> getRoles() {
 		return roles;
 	}
@@ -74,5 +83,6 @@ public class User {
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-	
+	*/
+
 }
