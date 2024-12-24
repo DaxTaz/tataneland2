@@ -10,6 +10,11 @@
 	<nav>
 		<img alt="" src="https://i.ibb.co/XW2vnBh/Netflix-logo.png" height="40">
 		<h1>Create User</h1>
+		<div class="onglet">
+			<p><a href="/tataneland2/acceuil">Acceuil</a></p>
+			<p><a href="/tataneland2/users">Users</a></p>
+			<p><a href="/tataneland2/actors">Actors</a></p>
+		</div>
 	</nav>
 	<div class="container">
 		<form th:action="@{/user/update/{id}(id=${user.id})}" th:object="${user}" method="post">
