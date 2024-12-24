@@ -32,13 +32,13 @@ nav .div-gauche .onglet {
 	margin-left: 10px;
 }
 
-nav .div-gauche .onglet p {
+nav .div-gauche .onglet p a {
 	margin-left: 10px;
 	cursor: pointer;
 	color: #909191;
 }
 
-nav .div-gauche .onglet p:hover {
+nav .div-gauche .onglet p a:hover {
 	color: #fff;
 }
 

@@ -10,6 +10,22 @@ nav {
 	padding-bottom: 10px;
 }
 
+nav .onglet {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 10px;
+}
+
+nav .onglet p a {
+	margin-left: 10px;
+	cursor: pointer;
+	color: #909191;
+}
+
+nav .onglet p a:hover {
+	color: #fff;
+}
+
 h1 {
 	font-size : 33px;
 	padding-left: 10px;
