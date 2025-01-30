@@ -8,11 +8,12 @@
 </head>
 <body>
 	<nav class="nav">
-		<img alt="" th:src="@{img/TataneLand.png}" height="40">
+		<img alt="" th:src="@{/img/TataneLand.png}" height="40">
 		<h1>Actors List</h1>
 		<div class="onglet">
 			<p><a href="/tataneland2/acceuil">Acceuil</a></p>
 			<p><a href="/tataneland2/users">Users</a></p>
+			<p><a href="/tataneland2/movies">Movies</a></p>
 		</div>
 	</nav>
 	<div class="container">
@@ -35,8 +36,8 @@
 					<td th:text = ${actor.name}></td>
 					<td th:text = "${actor.nationality}"></td>
 					<td th:text = "${actor.ageOfBirth}"></td>
-					<td th:text = "${actor.biography}"></td>
-					<td>
+					<td><div th:text = "${actor.biography}" style="overflow-y: scroll;height: 100px;"></div></td>
+					<td style="width: 150px;">
 						<a th:href="@{/actor/edit/{id}(id=${actor.id})}" class="btn btn-primary">Edit</a>
 						<a th:href="@{/actor/delete/{id}(id=${actor.id})}" class="btn btn-danger">Delete</a>
 					</td>
@@ -44,6 +45,5 @@
 			</tbody>
 		</table>
 	</div>
-
 </body>
 </html>
