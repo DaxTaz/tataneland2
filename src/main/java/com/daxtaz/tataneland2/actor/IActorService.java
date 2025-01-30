@@ -14,7 +14,9 @@ public interface IActorService {
 
 	Optional<Actor> findById(Integer id);
 	
-	Actor saveOrUpdateActor(Actor actor, MultipartFile imageData);
+	Actor saveActor(Actor actor, MultipartFile imageData);
+	
+	Actor updateActor(Boolean deleteImage, Actor actor, MultipartFile imageData);
 	
 	void deleteById(Integer id);
 	
