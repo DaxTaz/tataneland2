@@ -22,32 +22,38 @@ public class Actor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ACTOR_ID")
 	private Integer id;
 	
 	@Lob
+	@Column(name = "IMAGE_DATA")
 	private byte[] imageData;
 	
+	@Column(name = "NAME", nullable = false)
+	@NotBlank(message  = "Name can not be null")
 	private String name;
 	
+	@NotBlank(message  = "Nationality can not be null")
+	@Column(name = "NATIONALITY", nullable = false)
 	private String nationality;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "AGE_OF_BIRTH", nullable = false)
 	private LocalDate ageOfBirth;
 	
+	@NotBlank(message  = "Biography can not be null")
+	@Column(name = "BIOGRAPHY", length = 1000)
 	private String biography;
-	
-	//private Set<Movie> movies;
 	
 	public Actor() {}
 
-	public Actor(byte[] imageData, String name, String nationality, LocalDate ageOfBirth, String biography/*, Set<Movie> movies*/) {
+	public Actor(byte[] imageData, String name, String nationality, LocalDate ageOfBirth, String biography) {
 		super();
 		this.imageData = imageData;
 		this.name = name;
 		this.nationality = nationality;
 		this.ageOfBirth = ageOfBirth;
 		this.biography = biography;
-		//this.movies = movies;
 	}
 
 	public Integer getId() {
@@ -66,8 +72,6 @@ public class Actor {
 		this.imageData = imageData;
 	}
 
-	@Column(name = "NAME", nullable = false)
-	@NotBlank(message  = "Name can not be null")
 	public String getName() {
 		return name;
 	}
@@ -76,8 +80,6 @@ public class Actor {
 		this.name = name;
 	}
 	
-	@NotBlank(message  = "Nationality can not be null")
-	@Column(name = "NATIONALITY", nullable = false)
 	public String getNationality() {
 		return nationality;
 	}
@@ -86,8 +88,6 @@ public class Actor {
 		this.nationality = nationality;
 	}
 	
-	@Column(name = "AGE_OF_BIRTH", nullable = false)
-	@NotNull(message  = "Age can not be null")
 	public LocalDate getAgeOfBirth() {
 		return ageOfBirth;
 	}
@@ -96,8 +96,6 @@ public class Actor {
 		this.ageOfBirth = ageOfBirth;
 	}
 	
-	@NotBlank(message  = "Biography can not be null")
-	@Column(name = "BIOGRAPHY")
 	public String getBiography() {
 		return biography;
 	}
@@ -105,17 +103,6 @@ public class Actor {
 	public void setBiography(String biography) {
 		this.biography = biography;
 	}
-	
-	/*
-	@ManyToMany(mappedBy = "actors")
-	public Set<Movie> getMovies() {
-		return movies;
-	}
-
-	public void setMovies(Set<Movie> movies) {
-		this.movies = movies;
-	}
-	*/
 	
 	public String generateBase64Image() {
         return Base64.encodeBase64String(this.imageData);
