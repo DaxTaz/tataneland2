@@ -1,15 +1,11 @@
 package com.daxtaz.tataneland2.user;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -17,14 +13,18 @@ import javax.validation.constraints.NotBlank;
 @Table(name = "USERS")
 public class User {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "USER_ID")
 	private Integer id;
 	
+	@Column(name = "EMAIL", nullable = false, unique = true)
+	@NotBlank(message = "User email can not be null")
 	private String email;
 	
+	@Column(name = "PASSWORD", nullable = false)
+	@NotBlank(message = "User password can not be null")
 	private String password;
-	
-	//private List<Role> roles = new ArrayList<Role>();
-	private String role;
 	
 	public User() {}
 
@@ -35,10 +35,6 @@ public class User {
 		this.password = password;
 	}
 
-	@Id
-	// TODO before generation type is auto ????? a voir
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "USER_ID")
 	public Integer getId() {
 		return id;
 	}
@@ -47,8 +43,6 @@ public class User {
 		this.id = id;
 	}
 
-	@Column(name = "EMAIL", nullable = false, unique = true)
-	@NotBlank(message = "User email can not be null")
 	public String getEmail() {
 		return email;
 	}
@@ -57,8 +51,6 @@ public class User {
 		this.email = email;
 	}
 
-	@Column(name = "PASSWORD", nullable = false)
-	@NotBlank(message = "User password can not be null")
 	public String getPassword() {
 		return password;
 	}
@@ -66,23 +58,5 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	/*
-	public List<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
-	*/
 
 }
