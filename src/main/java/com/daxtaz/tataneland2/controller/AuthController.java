@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.daxtaz.tataneland2.movie.IMovieService;
+import com.daxtaz.tataneland2.movie.Movie;
 import com.daxtaz.tataneland2.user.IUserService;
 import com.daxtaz.tataneland2.user.User;
 import com.daxtaz.tataneland2.user.UserDto;
@@ -24,6 +26,9 @@ public class AuthController {
 	
 	@Autowired
 	private IUserService userService;
+	
+	@Autowired
+	private IMovieService movieService;
 
 	@GetMapping("/index")
 	public String Home() {
@@ -37,8 +42,20 @@ public class AuthController {
 	}
 	
 	@GetMapping("/acceuil")
-	public String Acceuil() {
+	public String Acceuil(Model model) {
+		
+		List<Movie> movieList = movieService.findAll();
+		
+		System.out.println("############movieList="+movieList.size());
+		
+		model.addAttribute("movies", movieList);
+		
 		return "acceuil";
+	}
+	
+	@GetMapping("/template")
+	public String Template(Model model) {
+		return "template";
 	}
 	
 	@PostMapping("/user/login")
