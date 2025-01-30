@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- barre de navigation -->
+	<nav th:fragment="head">
+		<div class="div-gauche">
+			<img alt="" th:src="@{img/TataneLand.png}" height="40">
+			<div class="onglet">
+				<p>
+					<a href="/tataneland2/acceuil">Acceuil</a>
+				</p>
+				<p>
+					<a href="/tataneland2/users">Users</a>
+				</p>
+				<p>
+					<a href="/tataneland2/actors">Actors</a>
+				</p>
+				<p>
+					<a href="/tataneland2/movies">Movies</a>
+				</p>
+			</div>
+		</div>
+		<div class="div-droite">
+			<p>
+				<i class="fas fa-search"></i>
+			</p>
+			<p>
+				<i class="fas fa-bell"></i>
+			</p>
+			<p>Mon compte</p>
+		</div>
+	</nav>
+	<!-- fin de la barre de navigation -->
+</body>
+</html>
