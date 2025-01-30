@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
@@ -69,7 +70,6 @@ public class ActorController {
 	 */
 	@PostMapping(value = "/actor/save",  consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public String saveActor(@Valid @ModelAttribute("actor") Actor actor, BindingResult bindingResult, MultipartFile imageData) {
-	//public String saveActor(Actor actor, MultipartFile imageData) {
 		
 		if(bindingResult.hasErrors()) {
 			return "newActor";
@@ -83,7 +83,7 @@ public class ActorController {
 			return "newActor";
 		}
 		
-		actorService.saveOrUpdateActor(actor, imageData);
+		actorService.saveActor(actor, imageData);
 		
 		return "redirect:/actors";
 	}
@@ -110,14 +110,16 @@ public class ActorController {
 	 * @return To the list of actors page
 	 */
 	@PostMapping(value = "actor/update/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public String  update(@Valid @ModelAttribute("actor") Actor actorToUpdate, BindingResult bindingResult, MultipartFile imageData) {
-	//public String  update(Actor actorToUpdate, MultipartFile imageData) {
+	public String  update(@RequestParam(value = "deleteImage", required = false) String deleteImage, @Valid @ModelAttribute("actor") Actor actorToUpdate, BindingResult bindingResult, MultipartFile imageData) {
 		
 		if(bindingResult.hasErrors()) {
 			return "editActor";
 		}
 		
-		actorService.saveOrUpdateActor(actorToUpdate, imageData);
+		if(deleteImage != null)
+			actorService.updateActor(true, actorToUpdate, imageData);
+		else
+			actorService.updateActor(false, actorToUpdate, imageData);
 		
 		return "redirect:/actors";
 	}
@@ -134,6 +136,13 @@ public class ActorController {
 		return "redirect:/actors";
 	}
 	
+	/**
+	 * Necessary to guide Spring to convert the upload file into byte array
+	 * 
+	 * @param request
+	 * @param binder
+	 * @throws ServletException
+	 */
 	@InitBinder
 	protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder)
 		throws ServletException {
