@@ -1,0 +1,4 @@
+
+1) Acces a la BDD sans password pour l'instant pg_hba.conf trust
+
+2) lombok!!!!!!!!!!!!
