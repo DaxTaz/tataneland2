@@ -8,18 +8,23 @@
 </head>
 <body>
 	<nav>
-		<img alt="" th:src="@{img/TataneLand.png}" height="40">
+		<img alt="" th:src="@{/img/TataneLand.png}" height="40">
 		<h1>Update Actor</h1>
 		<div class="onglet">
 			<p><a href="/tataneland2/acceuil">Acceuil</a></p>
 			<p><a href="/tataneland2/users">Users</a></p>
 			<p><a href="/tataneland2/actors">Actors</a></p>
+			<p><a href="/tataneland2/movies">Movies</a></p>
 		</div>
 	</nav>
 	<div class="container">
 		<form th:action="@{/actor/update/{id}(id=${actor.id})}" th:object="${actor}" method="post" enctype="multipart/form-data">
 			<div class="text-center">
-				<img th:src="@{'data:image/jpeg;base64,'+${actor.generateBase64Image()}}" alt="Image">
+				<img th:src="@{'data:image/jpeg;base64,'+${actor.generateBase64Image()}}" alt="Image" style="height: 200px;">
+				<div>
+				<label>Delete Image</label>
+					<input type="checkbox" id="deleteImage" name="deleteImage">
+				</div>
 				<input type="file" id="imageData" name="imageData" th:field="*{imageData}" class="form-control" placeholder="Image">
 			</div>
 			<div class="form-group">
