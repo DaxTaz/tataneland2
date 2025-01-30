@@ -30,11 +30,32 @@ public class ActorServiceImpl implements IActorService {
 		return actorDao.findById(id);
 	}
 	
-	public Actor saveOrUpdateActor(Actor actor, MultipartFile imageData) {
+	public Actor saveActor(Actor actor, MultipartFile imageData) {
+		
 		try {
 			actor.setImageData(imageData.getBytes());
 		} catch (IOException e) {
-			System.out.println("#####################GET_BYTES");
+			System.out.println("#####################Error actor set image data");
+		}
+		
+		return actorDao.save(actor);
+	}
+	
+	public Actor updateActor(Boolean deleteImage, Actor actor, MultipartFile imageData) {
+		
+		Optional<Actor> actorToUpdate = actorDao.findById(actor.getId());
+		
+		if(imageData.getSize() != 0) {
+			try {
+				actor.setImageData(imageData.getBytes());
+			} catch (IOException e) {
+				System.out.println("#####################Error movie set imagae data");
+			}
+		} else {
+			if(deleteImage)
+				actor.setImageData(null);
+			else
+				actor.setImageData(actorToUpdate.get().getImageData());
 		}
 		
 		return actorDao.save(actor);
