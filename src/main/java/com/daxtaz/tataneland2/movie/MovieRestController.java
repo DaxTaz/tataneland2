@@ -23,6 +23,7 @@ public class MovieRestController {
 	@Autowired
 	private MovieServiceImpl movieService;
 	
+	/*
 	@PostMapping("/saveMovie")
 	public ResponseEntity<MovieDTO> saveMovie(@RequestBody MovieDTO movieDtoRequest) {
 		
@@ -42,7 +43,9 @@ public class MovieRestController {
 		return new ResponseEntity<MovieDTO>(HttpStatus.NOT_MODIFIED);
 		
 	}
+	*/
 	
+	/*
 	@PutMapping("/updateMovie")
 	public ResponseEntity<MovieDTO> updateMovie(@RequestBody MovieDTO movieDtoRequest) {
 		
@@ -62,6 +65,7 @@ public class MovieRestController {
 		return new ResponseEntity<MovieDTO>(HttpStatus.NOT_MODIFIED);
 		
 	}
+	*/
 	
 	@DeleteMapping("/deleteMovie/{movieId}")
 	public ResponseEntity<String> deleteMovie(@PathVariable Integer movieId) {
