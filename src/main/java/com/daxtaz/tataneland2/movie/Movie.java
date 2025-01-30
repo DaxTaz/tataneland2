@@ -8,38 +8,64 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.daxtaz.tataneland2.actor.Actor;
 
 @Entity
-@Table(name = "MOVIE")
+@Table(name = "MOVIES")
 public class Movie {
 
+	@Id
+	@Column(name = "MOVIE_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Lob
+	@Column(name = "IMAGE_DATA")
+	private byte[] imageData;
+	
+	@Column(name = "NAME", nullable = false)
+	@NotBlank(message = "Name can not be null")
 	private String name;
 	
+	@Column(name = "DIRECTOR", nullable = false)
+	@NotBlank(message = "Director can not be null")
 	private String director;
 	
+	@Column(name = "WRITER", nullable = false)
+	@NotBlank(message = "Writer can not be null")
 	private String writer;
 	
+	@Column(name = "STORY_LINE", nullable = false, length = 1000)
+	@NotBlank(message = "Strory line can not be null")
 	private String storyLine;
 	
+	@Column(name = "NATIONALITY", nullable = false)
+	@NotBlank(message = "Nationality can not be null")
 	private String nationality;
 	
+	@Column(name = "DURATION", nullable = false)
+	//@NotBlank(message = "Duration can not be null")
 	private Integer duration;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "CREATION_DATE", nullable = false)
+	//@NotBlank(message = "Creation date can not be null")
 	private LocalDate creationDate;
-	
-	/*private Set<Actor> actors;*/
 	
 	public Movie() {}
 	
-	public Movie(String name, String director, String writer, String storyLine, String nationality,
-			Integer duration, LocalDate creationDate/*, Set<Actor> actors*/) {
+	public Movie(byte[] imageData, String name, String director, String writer, String storyLine, String nationality,
+			Integer duration, LocalDate creationDate) {
 		super();
+		this.imageData = imageData;
 		this.name = name;
 		this.director = director;
 		this.writer = writer;
@@ -47,12 +73,8 @@ public class Movie {
 		this.nationality = nationality;
 		this.duration = duration;
 		this.creationDate = creationDate;
-		//this.actors = actors;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "MOVIE_ID")
 	public Integer getId() {
 		return id;
 	}
@@ -61,7 +83,14 @@ public class Movie {
 		this.id = id;
 	}
 	
-	@Column(name = "NAME", nullable = false)
+	public byte[] getImageData() {
+		return imageData;
+	}
+
+	public void setImageData(byte[] imageData) {
+		this.imageData = imageData;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -70,7 +99,6 @@ public class Movie {
 		this.name = name;
 	}
 
-	@Column(name = "DIRECOR", nullable = false)
 	public String getDirector() {
 		return director;
 	}
@@ -79,7 +107,6 @@ public class Movie {
 		this.director = director;
 	}
 	
-	@Column(name = "WRITER", nullable = false)
 	public String getWriter() {
 		return writer;
 	}
@@ -88,7 +115,6 @@ public class Movie {
 		this.writer = writer;
 	}
 
-	@Column(name = "STORY_LINE", nullable = false)
 	public String getStoryLine() {
 		return storyLine;
 	}
@@ -97,7 +123,6 @@ public class Movie {
 		this.storyLine = storyLine;
 	}
 	
-	@Column(name = "NATIONALITY", nullable = false)
 	public String getNationality() {
 		return nationality;
 	}
@@ -106,7 +131,6 @@ public class Movie {
 		this.nationality = nationality;
 	}
 	
-	@Column(name = "DURATION", nullable = false)
 	public Integer getDuration() {
 		return duration;
 	}
@@ -115,7 +139,6 @@ public class Movie {
 		this.duration = duration;
 	}
 
-	@Column(name = "CREATION_DATE", nullable = false)
 	public LocalDate getCreationDate() {
 		return creationDate;
 	}
@@ -123,16 +146,9 @@ public class Movie {
 	public void setCreationDate(LocalDate creationDate) {
 		this.creationDate = creationDate;
 	}
-
-	/*
-	@ManyToMany
-	public Set<Actor> getActors() {
-		return actors;
-	}
-
-	public void setActors(Set<Actor> actors) {
-		this.actors = actors;
-	}
-	*/
+	
+	public String generateBase64Image() {
+        return Base64.encodeBase64String(this.imageData);
+    }
 	
 }
