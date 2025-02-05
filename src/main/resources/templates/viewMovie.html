@@ -7,16 +7,9 @@
 <link rel="stylesheet" th:href="@{/css/editMovie.css}">
 </head>
 <body>
-	<nav>
-		<img alt="" th:src="@{/img/TataneLand.png}" height="40">
-		<h1>View Movie</h1>
-		<div class="onglet">
-			<p><a href="/tataneland2/acceuil">Acceuil</a></p>
-			<p><a href="/tataneland2/users">Users</a></p>
-			<p><a href="/tataneland2/actors">Actors</a></p>
-			<p><a href="/tataneland2/movies">Movies</a></p>
-		</div>
-	</nav>
+	
+	<div th:insert="~{header :: head}"></div>
+	
 	<div class="container">
 			<div class="text-center">
 				<img th:src="@{'data:image/jpeg;base64,'+${movie.generateBase64Image()}}" alt="Image" style="height: 200px;">
@@ -27,5 +20,8 @@
 				<input type="text" id="name" th:field="*{movie.name}" class="form-control" placeholder="Name">
 			</div>
 	</div>
+	
+	<div th:insert="~{footer :: foot}"></div>
+	
 </body>
 </html>

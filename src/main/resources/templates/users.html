@@ -7,15 +7,9 @@
 <link rel="stylesheet" th:href="@{/css/users.css}">
 </head>
 <body>
-	<nav class="nav">
-		<img alt="" th:src="@{/img/TataneLand.png}" height="40">
-		<h1>Users List</h1>
-		<div class="onglet">
-			<p><a href="/tataneland2/acceuil">Acceuil</a></p>
-			<p><a href="/tataneland2/actors">Actors</a></p>
-			<p><a href="/tataneland2/movies">Movies</a></p>
-		</div>
-	</nav>
+	
+	<div th:insert="~{header :: head}"></div>
+	
 	<div class="container">
 		<a href="/tataneland2/user/new" class="btn btn-primary">Add new user</a>
 		<table class="table mt-3">
@@ -40,5 +34,7 @@
 		</table>
 	</div>
 
+	<div th:insert="~{footer :: foot}"></div>
+	
 </body>
 </html>

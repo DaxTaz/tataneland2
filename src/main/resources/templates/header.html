@@ -2,13 +2,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Header</title>
+<link rel="stylesheet" th:href="@{/css/header.css}">
+<link th:href="@{/css/fontawesome/css/all.css}" rel="stylesheet">
 </head>
 <body>
 	<!-- barre de navigation -->
 	<nav th:fragment="head">
 		<div class="div-gauche">
-			<img alt="" th:src="@{img/TataneLand.png}" height="40">
+			<img alt="TataneLand" th:src="@{img/TataneLand.png}" height="40">
 			<div class="onglet">
 				<p>
 					<a href="/tataneland2/acceuil">Acceuil</a>
