@@ -1,0 +1,13 @@
+@charset "ISO-8859-1";
+
+footer {
+	background-color: #191a1a;
+	padding: 25px 100px;
+	color: #909191;
+}
+
+footer .colonnes{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}

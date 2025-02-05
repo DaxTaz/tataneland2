@@ -1,0 +1,55 @@
+@charset "ISO-8859-1";
+
+/* barre de navigation */
+
+/* barre de navigation gauche */
+nav  {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	background-color: black;
+	color: #fff;
+}
+
+nav .div-gauche {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+nav .div-gauche img {
+	padding-top: 5px;
+}
+
+nav .div-gauche .onglet {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 10px;
+}
+
+nav .div-gauche .onglet p a {
+	margin-left: 10px;
+	cursor: pointer;
+	color: #909191;
+}
+
+nav .div-gauche .onglet p a:hover {
+	color: #fff;
+}
+
+/* fin barre de navigation droite */
+
+/* barre de navigation droite */
+
+nav .div-droite {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+nav .div-droite p {
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+/* barre de navigation droite*/
+
+/* Fin barre de navigation */
