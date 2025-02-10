@@ -7,16 +7,9 @@
 <link rel="stylesheet" th:href="@{/css/newMovie.css}">
 </head>
 <body>
-	<nav class="nav">
-		<img alt="" th:src="@{/img/TataneLand.png}" height="40">
-		<h1>Create Movie</h1>
-		<div class="onglet">
-			<p><a href="/tataneland2/acceuil">Acceuil</a></p>
-			<p><a href="/tataneland2/users">Users</a></p>
-			<p><a href="/tataneland2/actors">Actors</a></p>
-			<p><a href="/tataneland2/movies">Movies</a></p>
-		</div>
-	</nav>
+	
+	<div th:insert="~{fragments/header}"></div>
+	
 	<div class="container">
 		<form th:action="@{/movie/save}" th:object="${movie}" method="post" enctype="multipart/form-data">
 			<div>
@@ -62,5 +55,8 @@
 			<button type="submit" class="btn btn-primary">Save</button>
 		</form>
 	</div>
+	
+	<div th:insert="~{fragments/footer}"></div>
+	
 </body>
 </html>

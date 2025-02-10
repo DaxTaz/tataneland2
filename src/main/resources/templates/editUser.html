@@ -7,16 +7,9 @@
 <link rel="stylesheet" th:href="@{/css/editUser.css}">
 </head>
 <body>
-	<nav>
-		<img alt="" th:src="@{/img/TataneLand.png}" height="40">
-		<h1>Edit User</h1>
-		<div class="onglet">
-			<p><a href="/tataneland2/acceuil">Acceuil</a></p>
-			<p><a href="/tataneland2/users">Users</a></p>
-			<p><a href="/tataneland2/actors">Actors</a></p>
-			<p><a href="/tataneland2/movies">Movies</a></p>
-		</div>
-	</nav>
+	
+	<div th:insert="~{fragments/header}"></div>
+
 	<div class="container">
 		<form th:action="@{/user/update/{id}(id=${user.id})}" th:object="${user}" method="post">
 			<div>
@@ -32,5 +25,8 @@
 			<button type="submit" class="btn btn-primary">Update</button>
 		</form>
 	</div>
+	
+	<div th:insert="~{fragments/footer}"></div>
+	
 </body>
 </html>

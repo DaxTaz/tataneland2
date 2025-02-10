@@ -7,15 +7,9 @@
 <link rel="stylesheet" th:href="@{/css/actors.css}">
 </head>
 <body>
-	<nav class="nav">
-		<img alt="" th:src="@{/img/TataneLand.png}" height="40">
-		<h1>Actors List</h1>
-		<div class="onglet">
-			<p><a href="/tataneland2/acceuil">Acceuil</a></p>
-			<p><a href="/tataneland2/users">Users</a></p>
-			<p><a href="/tataneland2/movies">Movies</a></p>
-		</div>
-	</nav>
+	
+	<div th:insert="~{fragments/header}"></div>
+	
 	<div class="container">
 		<a href="/tataneland2/actor/new" class="btn btn-primary">Add new actor</a>
 		<table class="table mt-3">
@@ -45,5 +39,8 @@
 			</tbody>
 		</table>
 	</div>
+	
+	<div th:insert="~{fragments/footer}"></div>
+	
 </body>
 </html>
