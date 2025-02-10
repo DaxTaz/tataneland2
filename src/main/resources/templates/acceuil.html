@@ -9,9 +9,7 @@
 </head>
 <body>
 
-<!-- <div th:insert="~{header :: head}"></div> -->
-
-<div th:insert="~{footer :: foot}"></div>
+<div th:insert="~{fragments/header}"></div>
 
 <!-- début des sections -->
 	<section class="films">
@@ -55,6 +53,8 @@
 		<!-- fin section des films les plus regardés -->
 	</section>
 <!-- fin des sections -->
+
+<div th:insert="~{fragments/footer}"></div>
 
 </body>
 </html>

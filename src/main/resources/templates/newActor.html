@@ -8,7 +8,7 @@
 </head>
 <body>
 	
-	<div th:insert="~{header :: head}"></div>
+	<div th:insert="~{fragments/header}"></div>
 	
 	<div class="container">
 		<form th:action="@{/actor/save}" th:object="${actor}" method="post" enctype="multipart/form-data">
@@ -41,7 +41,7 @@
 		</form>
 	</div>
 	
-	<div th:insert="~{footer :: foot}"></div>
+	<div th:insert="~{fragments/footer}"></div>
 	
 </body>
 </html>
